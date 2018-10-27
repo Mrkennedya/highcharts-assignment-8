@@ -1,0 +1,62 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+  }
+
+body {
+      font-family: 'PT Serif', 'Bodoni MT', 'Georgia', serif;
+      background: #efefef;
+      color: #333;
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  margin: auto;
+  padding: 1rem;
+}
+
+#container {
+  max-width: 1000px;
+    margin: auto;
+}
+
+
+#containerTwo {
+  max-width: 1000px;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 760px) {
+
+  p {
+    font-size: .75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #container {
+    max-width: 700px;
+      margin: auto;
+  }
+
+
+  #containerTwo {
+    max-width: 700px;
+      margin: auto;
+  }
+
+}

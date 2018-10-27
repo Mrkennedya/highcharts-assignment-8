@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> My first chart with Highcharts </title>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/themes/grid-light.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:600|Roboto:700" rel="stylesheet">
+
+</head>
+<body>
+
+  <h1>Analyzing Election Trends Before the 2018 Midterms</h1>
+
+  <p>Alachua County has always favored Democratic voters since 2008 – this has not changed in the time between. Republican registered voters increased nearly 18 percent between 2008 and 2018, while Democrat registered voters increased only 7 percent. However, Democrats hold a 36,593 voter lead on the Republican voters in Alachua County.</p>
+
+  <div id="container" style="height:400px;"></div>
+
+  <p>Source: Florida Divison of Elections / <a href ="https://www.dos.myflorida.com/elections/data-statistics/voter-registration-statistics/">Click here to download the dataset.</a></p>
+
+  <script>
+      Highcharts.chart('container', {
+        chart: {
+          type: 'bar'
+        },
+        title: {
+          text: 'Alachua County Registered Voters (2008 – 2018)'
+        },
+        subtitle: {
+          text: 'Created by Angel Kennedy'
+        },
+        xAxis: {
+          categories: ['2008', '2010', '2012', '2014', '2016', '2018']
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'No. of Active Registered Voters'
+          }
+        },
+        legend: {
+          reversed: true
+        },
+
+        tooltip: {
+          headerFormat: '<b>{point.x}</b><br/>',
+          pointFormat: '{series.name}: {point.y}<br/>Total Voters: {point.stackTotal}'
+        },
+        plotOptions: {
+          series: {
+            stacking: 'normal'
+          }
+        },
+        series: [{
+          name: 'Democrat',
+          data: [80686, 78080, 80161, 74515, 85143, 86664]
+        }, {
+          name: 'Republican',
+          data: [42476, 42370, 46881, 45094, 50097, 50071]
+        }]
+      });
+  </script>
+
+  <h1>The Rise of Non-Party Support</h1>
+
+  <p>More and more, Alachua County residents are switching their party status to No Party Affiliation, or NPA, as opposed to being a Republican, Democrat and smaller thrid-party voter. Since the 2008 elections, more than 15,000 voters registered or transitioned to NPA status – from 27,218 voters to 42,575 voters. On the flip side, third-party membership decreased drastically in the same time, including a 60 percent decrease between 2016 and 2018.</p>
+
+  <div id="containerTwo" style="height:400px;"></div>
+
+  <p>Source: Florida Divison of Elections / <a href ="https://www.dos.myflorida.com/elections/data-statistics/voter-registration-statistics/bookclosing/">Click here to download the dataset.</a></p>
+
+  <script>
+    Highcharts.chart('containerTwo', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Alachua County Registered Voters (2008 – 2018)'
+      },
+      subtitle: {
+        text: 'Created by Angel Kennedy'
+      },
+      xAxis: {
+        categories: ['2008', '2010', '2012', '2014', '2016', '2018']
+      },
+      yAxis: {
+        title: {
+          text: 'No. of Active Registered Voters'
+        }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Non-Party',
+        data: [27218, 27320, 33894, 34282, 38564, 42575]
+      }, {
+        name: 'Other',
+        data: [4326, 4238, 3976, 3957, 4143, 1624]
+      }]
+    });
+  </script>
+
+</body>
+</html>
